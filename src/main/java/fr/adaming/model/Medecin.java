@@ -33,9 +33,15 @@ public class Medecin {
 		this.prenomMedecin = prenomMedecin;
 		this.adresseMedecin = adresseMedecin;
 	}
-
-
 	
+
+	public Medecin(String nomMedecin, String prenomMedecin, String adresseMedecin, Hopital hopital) {
+			super();
+			this.nomMedecin = nomMedecin;
+			this.prenomMedecin = prenomMedecin;
+			this.adresseMedecin = adresseMedecin;
+			this.hopital = hopital;
+		}
 
 /**********************************
  * Getter et Setter des attributs *	

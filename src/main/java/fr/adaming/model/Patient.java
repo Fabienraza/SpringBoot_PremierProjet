@@ -29,16 +29,30 @@ public class Patient {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+		
 	
-	public Patient(String nomPatient, String prenomPatient, Date dateDeNaissance) {
+	public Patient(String nomPatient, String prenomPatient, Date dateDeNaissance, String pathologie) {
 		super();
 		this.nomPatient = nomPatient;
 		this.prenomPatient = prenomPatient;
 		this.dateDeNaissance = dateDeNaissance;
+		this.pathologie = pathologie;
 	}
 
 
-	
+	public Patient(String nomPatient, String prenomPatient, Date dateDeNaissance, String pathologie, Medecin medecin) {
+		super();
+		this.nomPatient = nomPatient;
+		this.prenomPatient = prenomPatient;
+		this.dateDeNaissance = dateDeNaissance;
+		this.pathologie = pathologie;
+		this.medecin = medecin;
+	}
+
+
+
+
+
 
 /**********************************
  * Getter et Setter des attributs *	

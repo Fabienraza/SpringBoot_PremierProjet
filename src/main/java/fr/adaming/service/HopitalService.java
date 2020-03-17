@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import fr.adaming.model.Hopital;
 import fr.adaming.repository.IHopitalRepository;
 
@@ -32,21 +31,14 @@ public class HopitalService implements IHopitalService {
  ***********************************/
 	@Override
 	public int addHopital(Hopital hosp) {
-		hopitalrepository.save(hosp);
-		return 1;
-	}
-
-
-
-/************************************
- * methode pour modifier un hopital *
- ************************************/
-	@Override
-	public int updateHopital(long id) {
-		Hopital hosp = new Hopital();
-			hosp.setIdHopital(id);
-		hopitalrepository.save(hosp);
-		return 1;
+		try {
+			hopitalrepository.save(hosp);
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR DANS LA METHODE AJOUT HOPITAL");
+			return 0;
+		}
 	}
 
 
@@ -55,9 +47,15 @@ public class HopitalService implements IHopitalService {
  * methode pour supprimer un hopital *
  *************************************/
 	@Override
-	public int deleteHopital(long id) {
-		hopitalrepository.deleteById(id);
-		return 1;
+	public int deleteHopital(long idH) {
+		try {
+			hopitalrepository.deleteById(idH);
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Erreur dans la suppresion");
+			return 0;
+		}
 	}
 
 
@@ -65,9 +63,17 @@ public class HopitalService implements IHopitalService {
  * methode pour chercher un hopital à partir de son id *	
  *******************************************************/
 	@Override
-	public Hopital findHopital(long id) {
-		Optional<Hopital> hosp = hopitalrepository.findById(id);
-		return hosp.get(); 
+	public Hopital findHopital(long idH) {
+		Optional<Hopital> hopitalOptional = hopitalrepository.findById(idH);
+		
+		Hopital hop = new Hopital();
+		
+		if(hopitalOptional.isPresent() == true) //methode isPresent() retourne true si l'id est present dans la BD
+			{
+			hop = hopitalOptional.get();
+			}
+		
+		return hop; 
 	}
 
 }

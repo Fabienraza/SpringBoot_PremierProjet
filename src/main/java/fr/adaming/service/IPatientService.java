@@ -5,9 +5,8 @@ import fr.adaming.model.Patient;
 
 public interface IPatientService {
 	public int addPatient (Patient pat);
-	public int deletePatient(long id);
-	public int updatePatient(long id);
+	public int deletePatient(long idP);
 	public List<Patient> listAllPatient();
-	public Patient findPatient(long id);
+	public Patient findPatient(long idP);
 
 }
