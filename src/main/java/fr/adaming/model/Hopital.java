@@ -71,8 +71,7 @@ public class Hopital {
  *******************************************************/
 	@Override
 	public String toString() {
-		return "Hopital [idHopital=" + idHopital + ", nomHopital=" + nomHopital + ", adresseHopital=" + adresseHopital
-				+ "]";
+		return "Hopital [idHopital=" + idHopital + ", nomHopital=" + nomHopital + ", adresseHopital=" + adresseHopital + "]";
 	}
 	
 

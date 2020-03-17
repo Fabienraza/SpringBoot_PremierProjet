@@ -90,8 +90,7 @@ public class Medecin {
  *******************************************************/	
 	@Override
 	public String toString() {
-		return "Medecin [idMedecin=" + idMedecin + ", nomMedecin=" + nomMedecin + ", prenomMedecin=" + prenomMedecin
-				+ ", adresseMedecin=" + adresseMedecin + ", hopital=" + hopital + "]";
+		return "Medecin [idMedecin=" + idMedecin + ", nomMedecin=" + nomMedecin + ", prenomMedecin=" + prenomMedecin + ", adresseMedecin=" + adresseMedecin + ", hopital=" + hopital + "]";
 	}
 
 
