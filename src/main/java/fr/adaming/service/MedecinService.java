@@ -19,14 +19,13 @@ public class MedecinService implements IMedecinService {
  * methode pour ajouter un médecin *	
  ***********************************/
 	@Override
-	public int addMedecin(Medecin med) {
+	public Medecin addMedecin(Medecin med) {
 		try {
-			medecinrepository.save(med);
-			return 1;
+			return medecinrepository.save(med);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("ERREUR DANS LA METHODE AJOUT MEDECIN");
-			return 0;
+			return null;
 		}
 	}
 
@@ -36,8 +35,14 @@ public class MedecinService implements IMedecinService {
  *************************************/
 	@Override
 	public int deleteMedecin(long idM) {
-		medecinrepository.deleteById(idM);
-		return 1;
+		try {
+			medecinrepository.deleteById(idM);
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR DANS LA METHODE SUPP MEDECIN");
+			return 0;
+		}
 	}
 
 
@@ -56,9 +61,32 @@ public class MedecinService implements IMedecinService {
  *******************************************************/
 	@Override
 	public Medecin findMedecin(long idM) {
-		Optional<Medecin> med = medecinrepository.findById(idM);
-		return med.get();
+		Optional<Medecin> medecinOptional = medecinrepository.findById(idM);
+
+		Medecin medecin = new Medecin();
+		
+		if (medecinOptional.isPresent() == true) {
+			medecin = medecinOptional.get();
+		}
+		return medecin;
 	}
 
+	
+	
+/*************************************************
+ * Methode pour modifier les donnes d'un medecin *	
+ *************************************************/
+	
+	@Override
+	public Medecin updateMedecin(Medecin m) {
+		try {
+			return medecinrepository.save(m);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR DANS LA METHODE MODIFIER MEDECIN");
+			return null;
+		}
+		
+	}
 	
 }

@@ -7,7 +7,8 @@ import fr.adaming.model.Hopital;
 
 public interface IHopitalService {
 	public List<Hopital> getAllHopital();
-	public int addHopital(Hopital hosp);
+	public Hopital addHopital(Hopital hosp);
 	public int deleteHopital(long idH);
 	public Hopital findHopital (long idH);
+	public Hopital updateHopital(Hopital hopital);
 }

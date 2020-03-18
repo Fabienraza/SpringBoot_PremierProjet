@@ -2,7 +2,6 @@ package fr.adaming.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import fr.adaming.model.Hopital;
@@ -30,14 +29,13 @@ public class HopitalService implements IHopitalService {
  * methode pour ajouter un hopital *
  ***********************************/
 	@Override
-	public int addHopital(Hopital hosp) {
+	public Hopital addHopital(Hopital hosp) {
 		try {
-			hopitalrepository.save(hosp);
-			return 1;
+			return hopitalrepository.save(hosp);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("ERREUR DANS LA METHODE AJOUT HOPITAL");
-			return 0;
+			return null;
 		}
 	}
 
@@ -53,7 +51,7 @@ public class HopitalService implements IHopitalService {
 			return 1;
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Erreur dans la suppresion");
+			System.out.println("ERREUR DANS LA METHODE SUPPRESSION HOPITAL");
 			return 0;
 		}
 	}
@@ -75,5 +73,23 @@ public class HopitalService implements IHopitalService {
 		
 		return hop; 
 	}
+
+
+	
+/*******************************************************
+ * Methode pour mettre à jour des donnees d'un hopital *
+ *******************************************************/
+	@Override
+	public Hopital updateHopital(Hopital hopital) {
+		try {
+			return hopitalrepository.save(hopital);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR DANS LA METHODE MODIFIER");
+			return null;
+		}
+	}
+	
+	
 
 }

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import fr.adaming.model.Hopital;
 import fr.adaming.model.Medecin;
 import fr.adaming.model.Patient;
+import fr.adaming.repository.IHopitalRepository;
 import fr.adaming.service.HopitalService;
 import fr.adaming.service.IHopitalService;
 import fr.adaming.service.IMedecinService;
@@ -26,6 +27,7 @@ public class PremierProjetSpringBootApplication implements CommandLineRunner{
 	
 	
 	
+	
 	@Autowired
 	IMedecinService med;
 	
@@ -38,16 +40,23 @@ public class PremierProjetSpringBootApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 	
+		
 		//TEST DES METHODES DECRITES DANS SERVICE//
 
-	Patient p1 = new Patient();
-		p1.setNomPatient("AZERTY");
-		p1.setPrenomPatient("Alphonse");
-		p1.setDateDeNaissance(new Date(2020-05-15));
-		p1.setPathologie("Cyrrhose");
-		p1.setMedecin(med.findMedecin(6));
-
-	pat.addPatient(p1);
+//	Patient p1 = new Patient();
+//		p1.setNomPatient("AZERTY");
+//		p1.setPrenomPatient("Alphonse");
+//		p1.setDateDeNaissance(new Date(2020-05-15));
+//		p1.setPathologie("Cyrrhose");
+//		p1.setMedecin(med.findMedecin(6));
+//
+//	pat.addPatient(p1);
+		
+		//AJOUT D'UN HOPITAL DANS LA BD
+//	Hopital hosp = new Hopital("CLCC Curie", "Paris");
+//	hop.addHopital(hosp);
+	
+	
 		
 	}
 

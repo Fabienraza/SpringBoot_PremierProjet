@@ -14,14 +14,20 @@ public class PatientService implements IPatientService {
 	@Autowired
 	IPatientRepository patientrepository;
 
+
 	
 /***********************************
  * methode pour ajouter un patient *	
  ***********************************/
 	@Override
-	public int addPatient(Patient pat) {
-		patientrepository.save(pat);
-		return 1;
+	public Patient addPatient(Patient pat) {
+		try {
+			return patientrepository.save(pat);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR DANS METHODE AJOUT PATIENT");
+			return null;
+		}
 	}
 
 	
@@ -56,8 +62,30 @@ public class PatientService implements IPatientService {
  **********************************************************/
 	@Override
 	public Patient findPatient(long idP) {
-		Optional<Patient> p = patientrepository.findById(idP);
-		return p.get();
+		Optional<Patient> patientOptional = patientrepository.findById(idP);
+		Patient patient = new Patient();
+		if(patientOptional.isPresent() == true) {
+			patient = patientOptional.get();
+		}
+		return patient;
 	}
+
+
+	
+/*************************************************
+ * methode pour modifier les donnes d'un patient *
+ *************************************************/
+	@Override
+	public Patient updatePatient(Patient patient) {
+		try {
+			return patientrepository.save(patient);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR DANS LA METHODE MODIFICATION DONNEE PATIENT");
+			return null;
+		}
+	}
+	
+
 
 }

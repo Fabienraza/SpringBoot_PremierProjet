@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -48,7 +49,7 @@ public class Medecin {
  **********************************/
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	public long getIdMedecin() {
 		return idMedecin;
 	}
@@ -82,7 +83,7 @@ public class Medecin {
 	}
 
 	@JoinColumn(name = "idHopital")
-	@ManyToOne
+	@ManyToOne 
 	public Hopital getHopital() {
 		return hopital;
 	}
@@ -90,6 +91,8 @@ public class Medecin {
 	public void setHopital(Hopital hopital) {
 		this.hopital = hopital;
 	}
+	
+	
 
 /*******************************************************
  * methode pour afficher les descritpions d'un medecin *	
